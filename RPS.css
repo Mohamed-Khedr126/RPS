@@ -1,0 +1,102 @@
+body
+{
+    background-color: #222831;
+    margin: 0%;
+}
+.head
+{
+    display: flex;
+    justify-content: center;
+    padding: 40px 0px;
+    background-color: #111720;
+    width: 100vw;
+    margin-left: 0;
+}
+h1 {
+
+    font-size: 2em;
+    margin-left: 0;
+    font-weight: bold;
+}
+.title
+{
+    font-size: 40px;
+    color: #fac650;
+    font-family: 'Press Start 2P', cursive;
+}
+#scoreMessage
+{
+    margin-top: 5vh;
+    color: antiquewhite;
+    margin-left: 37.5vw;
+    width: 25vw;
+    text-align: center;
+}
+h2
+{
+    font-size: 2vw;
+}
+#scoreMessage2
+{
+    margin-top: 4vh;
+    color: antiquewhite;
+    margin-left: 37.5vw;
+    width: 25vw;
+    text-align: center
+}
+h3
+{
+    font-size: 1.5vw;
+}
+.sign
+{
+    font-size: 7vw;
+    color: azure;
+    width: 8vw;
+    text-align: center;
+}
+.scoreBoard
+{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 35vw;
+    padding-right: 35vw;
+}
+.score
+{
+    margin-top: 0;
+    font-size: 1.5vw;
+    color: azure;
+    padding-left: 1.5vw;
+}
+.buttons
+{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 30vw;
+    padding-right: 30vw;
+    margin-top: 5vh;
+    transition: all 0.2s ease-in-out;
+}
+.button
+{
+    border-radius: 25px;
+    font-size: 4vw;
+    height: 18vh;
+    width: 10vw;
+    background-color: #393e46;
+}
+.glow-button:hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+  }
+
+#CPUSign
+{
+    width: fit-content;
+    
+}
+#CPUScore
+{
+    padding-left: 2vw;
+}

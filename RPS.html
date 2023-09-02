@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="RPS.js"></script>
+    <title>Rock AND STONE</title>
+    <link rel="stylesheet" href="RPS.css">
+
 </head>
+
 <body>
+<header class="head">
+    <h1 class="title">ROCK  &nbsp &nbsp &nbsp &nbsp &nbsp PAPER &nbsp &nbsp &nbsp &nbsp &nbsp SCISSORS</h1>
+</header>
+<div class="box">
+    <h2 id="scoreMessage">CHOOSE YOUR WEAPON</h2>
+    <h3 id="scoreMessage2">First to score 5 points wins the game</h3>
+    
+    <div class="scoreBoard">
+        <div class="player">
+            <div class="sign" id="playerSign">?</div>
+            <p class="score" id="playerScore">Player: 0</p>
+        </div>
+
+        <div class="CPU">
+            <div class="sign" >
+                <span id="CPUSign">?</span>
+            </div>
+            <p class="score" id="CPUScore">CPU: 0</p>
+        </div>   
+    </div>
+</div>
+<div class="buttons">
+    <button class="button glow-button" id="rock">✊</button>
+    <button class="button glow-button" id="scissors">✌</button>
+    <button class="button glow-button" id="paper">✋</button>
+</div>
+
 
 
 </body>
+<script src="RPS.js"></script>
 </html>

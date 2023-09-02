@@ -1,102 +1,151 @@
+ var player_score = 0;
+ var CPU_score = 0;
+ var choiceG;
+ var cpu_choice;
+ var result = 0;
+ const scoreInfo = document.getElementById('scoreMessage')
+ const scoreMessage = document.getElementById('scoreMessage2')
+ const playerScorePara = document.getElementById('playerScore')
+ const computerScorePara = document.getElementById('CPUScore')
+ const playerSign = document.getElementById('playerSign')
+ const computerSign = document.getElementById('CPUSign')
+ const paperBtn = document.getElementById('paper')
+ const scissorsBtn = document.getElementById('scissors')
+ const rockBtn = document.getElementById('rock');
+
 function cpu_plays()
 {
     const random =Math.floor(Math.random() * 3) + 1;
     if(random == 1)
     {
-        return 'ROCK'
+        return '✊'
     }
     if(random == 2)
     {
-        return 'PAPER'
+        return '✋'
     }
     else
     {
-        return 'SCISSORS'
+        return '✌'
     }
 }
 
-function play_round()
+function play_round(choice)
 {
-    var cpu_choice = cpu_plays();
-    var player_choice = prompt("What is your play?");
-    player_choice = player_choice.toUpperCase();
-    console.log(player_choice)
+    choiceG = choice;
+    var tie = 0;
+    cpu_choice = cpu_plays();
 
-    //Invalidates Odd inputs
-    if(player_choice != "ROCK" && player_choice != "PAPER" && player_choice != "SCISSORS")
+    if(cpu_choice == choice)
     {
-        while(player_choice != "ROCK" && player_choice != "PAPER" && player_choice != "SCISSORS")
-        {
-            player_choice = prompt("Please enter a valid choice")
-            player_choice = player_choice.toUpperCase();
-        }
+        tie = 1
+        scoreInfo.textContent = "It's a tie!"
+        scoreMessage.textContent = choice + "ties" + cpu_choice;
     }
 
-    if(cpu_choice == player_choice)
+    if(cpu_choice == "✊" && tie != 1)
     {
-        alert("Tie!");
-        return 0;
-    }
-
-    if(cpu_choice == "ROCK")
-    {
-        if (player_choice == "SCISSORS")
+        if (choice == "✌")
         {
-            alert("CPU wins round")
-            return 1;
+            CPU_score++;
+            scoreInfo.textContent = "CPU wins this round!"
+            scoreMessage.textContent = choice + "loses against" + cpu_choice;
         }
         else
         {
-            alert("Player wins round")
-            return -1;
+            player_score++;
+            scoreInfo.textContent = "Player wins this round!"
+            scoreMessage.textContent = choice + "wins against" + cpu_choice;
         }
     }
 
-    if(cpu_choice == "PAPER")
+    if(cpu_choice == "✋" && tie != 1)
     {
-        if (player_choice == "ROCK")
+        if (choice == "✊")
         {
-            alert("CPU wins round")
-            return 1;
+            CPU_score++;
+            scoreInfo.textContent = "CPU wins this round!"
+            scoreMessage.textContent = choice + "loses against" + cpu_choice;
         }
         else
         {
-            alert("Player wins round")
-            return -1;
+            player_score++;
+            scoreInfo.textContent = "Player wins this round!"
+            scoreMessage.textContent = choice + "wins against" + cpu_choice;
         }
     }
 
-    if(cpu_choice == "SCISSORS")
+    if(cpu_choice == "✌" && tie != 1)
     {
-        if (player_choice == "PAPER")
+        if (choice == "✋")
         {
-            alert("CPU wins round")
-            return 1;
+            CPU_score++;
+            scoreInfo.textContent = "CPU wins this round!"
+            scoreMessage.textContent = choice + "loses against" + cpu_choice;
         }
         else
         {
-            alert("Player wins round")
-            return -1;
+            player_score++;
+            scoreInfo.textContent = "Player wins this round!"
+            scoreMessage.textContent = choice + "wins against" + cpu_choice;
         }
     }
+    if (player_score == 5)
+    {
+        scoreInfo.textContent = "Player wins!"
+        scoreMessage.textContent = choice + "wins against" + cpu_choice;
+        player_score = 0
+        CPU_score = 0
+    }
+
+    if (CPU_score == 5)
+    {
+        scoreInfo.textContent = "CPU wins!"
+        scoreMessage.textContent = choice + "wins against" + cpu_choice;
+        player_score = 0
+        CPU_score = 0
+    }
+    
+    
+
+
 }
 
-//Main starts
-    var i = 0;
-    var wins = 0;
-    while(-3 < wins < 3 && i < 5)
-    {
-        wins += play_round();
-        i++;
-    }
-    if(wins < 0)
-    {
-        alert("Player Wins");
-    }
-    else
-    {
-        alert("CPU Wins")
-    }
+//UI code
+
+
+          paperBtn.addEventListener('click', function (e) {
+              play_round('✋');
+              playerScorePara.textContent = 'Player:' + player_score;
+              computerScorePara.textContent = 'CPU:' + CPU_score;   
+              playerSign.textContent = choiceG;
+              computerSign.textContent = cpu_choice;  
+
+            });
+
+
+        scissorsBtn.addEventListener('click', function (e) {
+            play_round('✌');
+            playerScorePara.textContent = 'Player:' + player_score;
+            computerScorePara.textContent = 'CPU:' + CPU_score; 
+            playerSign.textContent = choiceG;
+            computerSign.textContent = cpu_choice;  
+          });
+
+
+          rockBtn.addEventListener('click', function (e) {
+            play_round('✊');
+            playerScorePara.textContent = 'Player:' + player_score;
+            computerScorePara.textContent = 'CPU:' + CPU_score;   
+            playerSign.textContent = choiceG;
+            computerSign.textContent = cpu_choice;
+          });
+
+
+
+
+
+
 
 
 
